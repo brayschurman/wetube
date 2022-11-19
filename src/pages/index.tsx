@@ -1,7 +1,7 @@
 import { type NextPage } from "next";
 import Head from "next/head";
 import { useState } from "react";
-import { ytDownloader } from "@derimalec/ytdl-to-mp3";
+// import { ytDownloader } from "@derimalec/ytdl-to-mp3";
 // const youtubeMp3Converter = require('youtube-mp3-converter')
 
 const Home: NextPage = () => {
@@ -16,7 +16,8 @@ const Home: NextPage = () => {
         // console.log(url);
         // const convertLinkToMp3 = youtubeMp3Converter('../../mp3');
 
-        ytDownloader.download(url, '../../mp3');
+        alert(url);
+        // ytDownloader.download(url, '../../mp3');
         // const pathToMp3 = await convertLinkToMp3(url);
     }
 

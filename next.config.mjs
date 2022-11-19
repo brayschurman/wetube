@@ -13,20 +13,8 @@ const config = {
         locales: ["en"],
         defaultLocale: "en",
     },
-    future: {
-        webpack5: true, // by default, if you customize webpack config, they switch back to version 4. 
-        // Looks like backward compatibility approach.
-    },
-    /**
-     * @param {{ resolve: { fallback: any; }; }} config
-     */
-     webpack5: true,
-     webpack: (config) => {
-       config.resolve.fallback = { fs: false };
-   
-       return config;
-     },
 };
+
 
 export default config;
 
