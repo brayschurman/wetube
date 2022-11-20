@@ -10,7 +10,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@derimalec/ytdl-to-mp3": "^1.2.0",
+    "@bishal-9/youtube-to-mp3": "^1.0.0",
     "@ffmpeg-installer/ffmpeg": "^1.1.0",
     "@prisma/client": "^4.5.0",
     "@tanstack/react-query": "^4.10.0",
@@ -22,8 +22,6 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "superjson": "1.9.1",
-    "youtube-mp3-converter": "^1.0.3",
-    "ytdl-core": "^4.11.2",
     "zod": "^3.18.0"
   },
   "devDependencies": {
@@ -44,5 +42,8 @@
   },
   "ct3aMetadata": {
     "initVersion": "6.10.1"
+  },
+  "browser": {
+    "fs": false
   }
 }
