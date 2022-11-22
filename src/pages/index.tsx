@@ -3,14 +3,12 @@ import Head from "next/head";
 import { useState } from "react";
 import { trpc } from "../utils/trpc";
 
-const youReg = /([A-Z])\w+/;
-
 const Home: NextPage = () => {
 
     const [url, setUrl] = useState<string>('');
     const [youtubeId, setYoutubeId] = useState<string>('');
-
     const [roomName, setRoomName] = useState<string>('');
+
     const newRoomMutation = trpc.room.create.useMutation();
 
     const createRoom = async () => {
@@ -64,8 +62,22 @@ const Home: NextPage = () => {
                         </iframe>
                     }
 
+                    {/* <div className="w-1/3">
+                        <h1>Room Name</h1>
+                        <div className="mb-6">
+                            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" />
+                            <input placeholder="Name your room..." type="text" id="default-input" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm 
+                            rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
+                            dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white 
+                            dark:focus:ring-blue-500 dark:focus:border-blue-500" onChange={captureRoomName} value={roomName} />
+                        </div>
+                    </div> */}
+
                     {/* <Link href=></Link> */}
-                    <button className="font-bold bg-white rounded-sm text-2xl p-2" onClick={() => createRoom()}>Start a party</button>
+                    {newRoomMutation.isError ? (
+                        <div>An error occurred creating yourƒ room: {newRoomMutation.error.message}</div>
+                    ) : null}
+                    <button className="font-bold bg-white rounded-sm text-2xl p-2 w-1/5" onClick={() => createRoom()} disabled={newRoomMutation.isLoading}>Start a session</button>
 
                     {/* <div className="w-1/2">
                         <div className="mb-6">
@@ -76,16 +88,6 @@ const Home: NextPage = () => {
                             dark:focus:ring-blue-500 dark:focus:border-blue-500" onChange={captureUrl} value={url} />
                         </div>
                     </div> */}
-                    <div className="w-1/2">
-                        <h1>Room Name</h1>
-                        <div className="mb-6">
-                            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" />
-                            <input placeholder="Name your room..." type="text" id="default-input" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm 
-                            rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
-                            dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white 
-                            dark:focus:ring-blue-500 dark:focus:border-blue-500" onChange={captureRoomName} value={roomName} />
-                        </div>
-                    </div>
                 </div>
             </main>
         </>

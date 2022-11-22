@@ -1,0 +1,1 @@
+export const youReg = /([A-Z])\w+/;
