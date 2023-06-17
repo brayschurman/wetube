@@ -1,5 +1,13 @@
 # WeTube
 
+## Running
+
+```bash
+npm install
+npm run dev
+docker-compose up -d
+``` 
+
 Watch Youtube together with your friends, in sync, with a nice UI.
 
 ## Todo
